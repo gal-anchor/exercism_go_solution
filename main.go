@@ -2,20 +2,26 @@ package main
 
 import (
 	airportrobot "exercism_go_solution/airport-robot"
+	"exercism_go_solution/annalyns-infiltration"
 	"exercism_go_solution/armstrong-numbers"
 	"exercism_go_solution/atbash-cipher"
+	"exercism_go_solution/blackjack"
 	"exercism_go_solution/bob"
 	"exercism_go_solution/booking-up-for-beauty"
 	"exercism_go_solution/census"
 	"exercism_go_solution/clock"
+	"exercism_go_solution/darts"
 	jedlik "exercism_go_solution/elons-toys"
 	"exercism_go_solution/expenses"
+	"exercism_go_solution/gophers-gorgeous-lasagna"
 	greeting "exercism_go_solution/hello-world"
 	lsproduct "exercism_go_solution/largest-series-product"
 	"exercism_go_solution/meteorology"
 	prime "exercism_go_solution/nth-prime"
 	"exercism_go_solution/pangram"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
+	"exercism_go_solution/party-robot"
+	"exercism_go_solution/phone-number"
 	"exercism_go_solution/raindrops"
 	"exercism_go_solution/reverse-string"
 	"exercism_go_solution/sieve"
@@ -24,6 +30,7 @@ import (
 	"exercism_go_solution/space-age"
 	"exercism_go_solution/strain"
 	thefarm "exercism_go_solution/the-farm"
+	"exercism_go_solution/weather-forecast"
 	wordcount "exercism_go_solution/word-count"
 	"fmt"
 )
@@ -71,6 +78,16 @@ func main() {
 	fmt.Println(armstrong.IsNumber(153))
 	fmt.Println(armstrong.IsNumber(154))
 	fmt.Println(reverse.Reverse("Hello, 世界"))
+	fmt.Println(darts.Score(0, 0))
+	fmt.Println(darts.Score(2, 2))
+	fmt.Println(darts.Score(11, 0))
+	fmt.Println(phonenumber.Format("+1 (613)-995-0253"))
+	fmt.Println(lasagna.ElapsedTime(3, 20))
+	fmt.Println(annalyn.CanFreePrisoner(false, false, true, false))
+	fmt.Println(annalyn.CanFreePrisoner(true, false, false, true))
+	fmt.Println(partyrobot.AssignTable("Gal", 7, "Alice", "left", 3.5))
+	fmt.Println(weather.Forecast("Goblinopolis", "sunny"))
+	fmt.Println(blackjack.FirstTurn("ace", "king", "five"))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

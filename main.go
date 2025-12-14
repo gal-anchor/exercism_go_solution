@@ -2,6 +2,7 @@ package main
 
 import (
 	airportrobot "exercism_go_solution/airport-robot"
+	"exercism_go_solution/animal-magic"
 	"exercism_go_solution/annalyns-infiltration"
 	"exercism_go_solution/armstrong-numbers"
 	"exercism_go_solution/atbash-cipher"
@@ -14,12 +15,15 @@ import (
 	"exercism_go_solution/census"
 	"exercism_go_solution/chessboard"
 	"exercism_go_solution/clock"
+	"exercism_go_solution/collatz-conjecture"
 	"exercism_go_solution/darts"
 	jedlik "exercism_go_solution/elons-toys"
 	"exercism_go_solution/expenses"
+	"exercism_go_solution/gigasecond"
 	"exercism_go_solution/gophers-gorgeous-lasagna"
 	"exercism_go_solution/gross-store"
 	greeting "exercism_go_solution/hello-world"
+	"exercism_go_solution/interest-is-interesting"
 	lsproduct "exercism_go_solution/largest-series-product"
 	lasagnamaster "exercism_go_solution/lasagna-master"
 	"exercism_go_solution/logs-logs-logs"
@@ -38,11 +42,13 @@ import (
 	"exercism_go_solution/space-age"
 	"exercism_go_solution/strain"
 	thefarm "exercism_go_solution/the-farm"
+	"exercism_go_solution/two-fer"
 	"exercism_go_solution/vehicle-purchase"
 	"exercism_go_solution/weather-forecast"
 	"exercism_go_solution/welcome-to-tech-palace"
 	wordcount "exercism_go_solution/word-count"
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -131,6 +137,14 @@ func main() {
 	msg := techpalace.AddBorder(techpalace.WelcomeMessage("gal"), 20)
 	fmt.Println(msg)
 	fmt.Println(techpalace.CleanupMessage(msg))
+	fmt.Println(interest.InterestRate(200.75))
+	fmt.Println(interest.AnnualBalanceUpdate(200.75))
+	fmt.Println(chance.RollADie())
+	fmt.Println(chance.ShuffleAnimals())
+	fmt.Println(twofer.ShareWith("Gal"))
+	fmt.Println(twofer.ShareWith(""))
+	fmt.Println(collatzconjecture.CollatzConjecture(12))
+	fmt.Println(gigasecond.AddGigasecond(time.Date(2011, 4, 25, 0, 0, 0, 0, time.UTC)))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

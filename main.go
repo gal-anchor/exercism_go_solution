@@ -11,12 +11,14 @@ import (
 	"exercism_go_solution/blackjack"
 	"exercism_go_solution/bob"
 	"exercism_go_solution/booking-up-for-beauty"
+	"exercism_go_solution/bottle-song"
 	"exercism_go_solution/card-tricks"
 	"exercism_go_solution/cars-assemble"
 	"exercism_go_solution/census"
 	"exercism_go_solution/chessboard"
 	"exercism_go_solution/clock"
 	"exercism_go_solution/collatz-conjecture"
+	"exercism_go_solution/complex-numbers"
 	"exercism_go_solution/darts"
 	"exercism_go_solution/difference-of-squares"
 	jedlik "exercism_go_solution/elons-toys"
@@ -31,6 +33,7 @@ import (
 	lsproduct "exercism_go_solution/largest-series-product"
 	lasagnamaster "exercism_go_solution/lasagna-master"
 	"exercism_go_solution/leap"
+	"exercism_go_solution/list-ops"
 	"exercism_go_solution/logs-logs-logs"
 	"exercism_go_solution/luhn"
 	"exercism_go_solution/meteorology"
@@ -40,6 +43,7 @@ import (
 	"exercism_go_solution/pangram"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
 	"exercism_go_solution/party-robot"
+	"exercism_go_solution/perfect-numbers"
 	"exercism_go_solution/phone-number"
 	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/raindrops"
@@ -55,8 +59,9 @@ import (
 	"exercism_go_solution/strain"
 	"exercism_go_solution/sublist"
 	thefarm "exercism_go_solution/the-farm"
+	"exercism_go_solution/twelve-days"
 	"exercism_go_solution/two-fer"
-	"exercism_go_solution/vehicle-purchase"
+	purchase "exercism_go_solution/vehicle-purchase"
 	"exercism_go_solution/weather-forecast"
 	"exercism_go_solution/welcome-to-tech-palace"
 	wordcount "exercism_go_solution/word-count"
@@ -176,6 +181,17 @@ func main() {
 	fmt.Println(series.UnsafeFirst(3, "49142"))
 	fmt.Println(sublist.Sublist([]int{1, 2, 3}, []int{0, 1, 2, 3, 4}))
 	fmt.Println(acronym.Abbreviate("Portable Network Graphics"))
+	lst := listops.IntList{1, 2, 3, 4}
+	fmt.Println(lst.Length())
+	fmt.Println(lst.Filter(func(n int) bool { return n%2 == 0 }))
+	fmt.Println(lst.Map(func(n int) int { return n * n }))
+	fmt.Println(bottlesong.Recite(3, 1))
+	fmt.Println(twelve.Verse(1))
+	z := complexnumbers.New(1, 2).Add(complexnumbers.New(3, 4))
+	fmt.Println(z.Real(), z.Imaginary())
+	fmt.Println(perfect.Classify(6))
+	fmt.Println(perfect.Classify(12))
+	fmt.Println(perfect.Classify(13))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

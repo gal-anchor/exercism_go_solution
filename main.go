@@ -2,6 +2,7 @@ package main
 
 import (
 	airportrobot "exercism_go_solution/airport-robot"
+	"exercism_go_solution/armstrong-numbers"
 	"exercism_go_solution/atbash-cipher"
 	"exercism_go_solution/bob"
 	"exercism_go_solution/booking-up-for-beauty"
@@ -15,6 +16,9 @@ import (
 	prime "exercism_go_solution/nth-prime"
 	"exercism_go_solution/pangram"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
+	"exercism_go_solution/raindrops"
+	"exercism_go_solution/reverse-string"
+	"exercism_go_solution/sieve"
 	"exercism_go_solution/simple-cipher"
 	"exercism_go_solution/sorting-room"
 	"exercism_go_solution/space-age"
@@ -59,6 +63,14 @@ func main() {
 	encoded := caesar.Encode("hello")
 	decoded := caesar.Decode(encoded)
 	fmt.Println(encoded, decoded)
+
+	fmt.Println(raindrops.Convert(28))
+	fmt.Println(raindrops.Convert(30))
+
+	fmt.Println(sieve.Sieve(30))
+	fmt.Println(armstrong.IsNumber(153))
+	fmt.Println(armstrong.IsNumber(154))
+	fmt.Println(reverse.Reverse("Hello, 世界"))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

@@ -17,25 +17,34 @@ import (
 	"exercism_go_solution/clock"
 	"exercism_go_solution/collatz-conjecture"
 	"exercism_go_solution/darts"
+	"exercism_go_solution/difference-of-squares"
 	jedlik "exercism_go_solution/elons-toys"
 	"exercism_go_solution/expenses"
 	"exercism_go_solution/gigasecond"
 	"exercism_go_solution/gophers-gorgeous-lasagna"
 	"exercism_go_solution/gross-store"
+	"exercism_go_solution/hamming"
 	greeting "exercism_go_solution/hello-world"
 	"exercism_go_solution/interest-is-interesting"
+	"exercism_go_solution/isogram"
 	lsproduct "exercism_go_solution/largest-series-product"
 	lasagnamaster "exercism_go_solution/lasagna-master"
+	"exercism_go_solution/leap"
 	"exercism_go_solution/logs-logs-logs"
+	"exercism_go_solution/luhn"
 	"exercism_go_solution/meteorology"
 	speed "exercism_go_solution/need-for-speed"
 	prime "exercism_go_solution/nth-prime"
+	"exercism_go_solution/nucleotide-count"
 	"exercism_go_solution/pangram"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
 	"exercism_go_solution/party-robot"
 	"exercism_go_solution/phone-number"
 	"exercism_go_solution/raindrops"
+	"exercism_go_solution/resistor-color"
 	"exercism_go_solution/reverse-string"
+	"exercism_go_solution/rna-transcription"
+	"exercism_go_solution/scrabble-score"
 	"exercism_go_solution/sieve"
 	"exercism_go_solution/simple-cipher"
 	"exercism_go_solution/sorting-room"
@@ -145,6 +154,19 @@ func main() {
 	fmt.Println(twofer.ShareWith(""))
 	fmt.Println(collatzconjecture.CollatzConjecture(12))
 	fmt.Println(gigasecond.AddGigasecond(time.Date(2011, 4, 25, 0, 0, 0, 0, time.UTC)))
+	fmt.Println(hamming.Distance("GAGCCT", "CATCGT"))
+	fmt.Println(scrabble.Score("cabbage"))
+	fmt.Println(leap.IsLeapYear(1996))
+	fmt.Println(leap.IsLeapYear(1900))
+	fmt.Println(isogram.IsIsogram("lumberjacks"))
+	fmt.Println(isogram.IsIsogram("six-year-old"))
+	fmt.Println(diffsquares.Difference(10))
+	fmt.Println(luhn.Valid("4539 1488 0343 6467"))
+	fmt.Println(luhn.Valid("8273 1232 7352 0569"))
+	fmt.Println(resistorcolor.Colors())
+	fmt.Println(resistorcolor.ColorCode("green"))
+	fmt.Println(dna.DNA("ACGTACGT").Counts())
+	fmt.Println(strand.ToRNA("ACGTGGTCTTAA"))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

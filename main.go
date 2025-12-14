@@ -1,6 +1,7 @@
 package main
 
 import (
+	"exercism_go_solution/acronym"
 	airportrobot "exercism_go_solution/airport-robot"
 	"exercism_go_solution/animal-magic"
 	"exercism_go_solution/annalyns-infiltration"
@@ -40,16 +41,19 @@ import (
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
 	"exercism_go_solution/party-robot"
 	"exercism_go_solution/phone-number"
+	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/raindrops"
 	"exercism_go_solution/resistor-color"
 	"exercism_go_solution/reverse-string"
 	"exercism_go_solution/rna-transcription"
 	"exercism_go_solution/scrabble-score"
+	"exercism_go_solution/series"
 	"exercism_go_solution/sieve"
 	"exercism_go_solution/simple-cipher"
 	"exercism_go_solution/sorting-room"
 	"exercism_go_solution/space-age"
 	"exercism_go_solution/strain"
+	"exercism_go_solution/sublist"
 	thefarm "exercism_go_solution/the-farm"
 	"exercism_go_solution/two-fer"
 	"exercism_go_solution/vehicle-purchase"
@@ -167,6 +171,11 @@ func main() {
 	fmt.Println(resistorcolor.ColorCode("green"))
 	fmt.Println(dna.DNA("ACGTACGT").Counts())
 	fmt.Println(strand.ToRNA("ACGTGGTCTTAA"))
+	fmt.Println(primefactors.Factors(360))
+	fmt.Println(series.All(3, "49142"))
+	fmt.Println(series.UnsafeFirst(3, "49142"))
+	fmt.Println(sublist.Sublist([]int{1, 2, 3}, []int{0, 1, 2, 3, 4}))
+	fmt.Println(acronym.Abbreviate("Portable Network Graphics"))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

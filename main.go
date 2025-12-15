@@ -25,6 +25,7 @@ import (
 	"exercism_go_solution/expenses"
 	"exercism_go_solution/gigasecond"
 	"exercism_go_solution/gophers-gorgeous-lasagna"
+	"exercism_go_solution/grep"
 	"exercism_go_solution/gross-store"
 	"exercism_go_solution/hamming"
 	greeting "exercism_go_solution/hello-world"
@@ -58,6 +59,7 @@ import (
 	"exercism_go_solution/space-age"
 	"exercism_go_solution/strain"
 	"exercism_go_solution/sublist"
+	"exercism_go_solution/sum-of-multiples"
 	thefarm "exercism_go_solution/the-farm"
 	"exercism_go_solution/twelve-days"
 	"exercism_go_solution/two-fer"
@@ -65,6 +67,7 @@ import (
 	"exercism_go_solution/weather-forecast"
 	"exercism_go_solution/welcome-to-tech-palace"
 	wordcount "exercism_go_solution/word-count"
+	"exercism_go_solution/wordy"
 	"fmt"
 	"time"
 )
@@ -192,6 +195,10 @@ func main() {
 	fmt.Println(perfect.Classify(6))
 	fmt.Println(perfect.Classify(12))
 	fmt.Println(perfect.Classify(13))
+	fmt.Println(summultiples.SumMultiples(20, 3, 5))
+	fmt.Println(grep.Search("Exercism", []string{"-i"}, []string{"README.md"}))
+	fmt.Println(wordy.Answer("What is 5 plus 13?"))
+	fmt.Println(wordy.Answer("What is 7 multiplied by 2 divided by 2?"))
 
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))

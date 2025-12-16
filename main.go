@@ -31,6 +31,7 @@ import (
 	"exercism_go_solution/darts"
 	"exercism_go_solution/diamond"
 	"exercism_go_solution/difference-of-squares"
+	"exercism_go_solution/diffie-hellman"
 	jedlik "exercism_go_solution/elons-toys"
 	"exercism_go_solution/error-handling"
 	"exercism_go_solution/expenses"
@@ -54,6 +55,7 @@ import (
 	"exercism_go_solution/list-ops"
 	"exercism_go_solution/logs-logs-logs"
 	"exercism_go_solution/luhn"
+	"exercism_go_solution/matching-brackets"
 	"exercism_go_solution/matrix"
 	"exercism_go_solution/meetup"
 	"exercism_go_solution/meteorology"
@@ -61,13 +63,14 @@ import (
 	speed "exercism_go_solution/need-for-speed"
 	prime "exercism_go_solution/nth-prime"
 	"exercism_go_solution/nucleotide-count"
+	"exercism_go_solution/paas-io"
 	"exercism_go_solution/pangram"
 	"exercism_go_solution/parallel-letter-frequency"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
 	"exercism_go_solution/party-robot"
 	"exercism_go_solution/pascals-triangle"
 	"exercism_go_solution/perfect-numbers"
-	"exercism_go_solution/phone-number"
+	phonenumber "exercism_go_solution/phone-number"
 	"exercism_go_solution/pig-latin"
 	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/pythagorean-triplet"
@@ -81,6 +84,7 @@ import (
 	"exercism_go_solution/run-length-encoding"
 	saddlepoints "exercism_go_solution/saddle-points"
 	"exercism_go_solution/scrabble-score"
+	"exercism_go_solution/secret-handshake"
 	"exercism_go_solution/series"
 	"exercism_go_solution/sieve"
 	"exercism_go_solution/simple-cipher"
@@ -105,6 +109,8 @@ import (
 	"exercism_go_solution/wordy"
 	"exercism_go_solution/yacht"
 	"fmt"
+	"io"
+	"math/big"
 	"os"
 	"strings"
 	"time"
@@ -266,10 +272,20 @@ func main() {
 	fmt.Println(buf.ReadByte())
 	winner, _ := connect.ResultOf([]string{"O..", ".O.", "..O"})
 	fmt.Println(winner)
+	wc := paasio.NewWriteCounter(io.Discard)
+	_, _ = wc.Write([]byte("hello"))
+	fmt.Println(wc.WriteCount())
+	fmt.Println(brackets.Bracket("{[()]}"))
+	fmt.Println(brackets.Bracket("{[(])}"))
+	dhP := big.NewInt(23)
+	priv1, pub1 := diffiehellman.NewPair(dhP, 5)
+	priv2, pub2 := diffiehellman.NewPair(dhP, 5)
+	fmt.Println(diffiehellman.SecretKey(priv1, pub2, dhP).Cmp(diffiehellman.SecretKey(priv2, pub1, dhP)) == 0)
 	d, _ := diamond.Gen('C')
 	fmt.Println(d)
 	fmt.Println(pascal.Triangle(5))
 	fmt.Println(spiralmatrix.SpiralMatrix(3))
+	fmt.Println(secret.Handshake(19))
 	fmt.Println(dna.DNA("ACGTACGT").Counts())
 	fmt.Println(strand.ToRNA("ACGTGGTCTTAA"))
 	fmt.Println(primefactors.Factors(360))

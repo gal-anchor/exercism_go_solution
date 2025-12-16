@@ -10,6 +10,7 @@ import (
 	"exercism_go_solution/armstrong-numbers"
 	"exercism_go_solution/atbash-cipher"
 	"exercism_go_solution/bank-account"
+	"exercism_go_solution/binary-search"
 	"exercism_go_solution/bird-watcher"
 	"exercism_go_solution/blackjack"
 	"exercism_go_solution/bob"
@@ -20,6 +21,7 @@ import (
 	"exercism_go_solution/cars-assemble"
 	"exercism_go_solution/census"
 	"exercism_go_solution/chessboard"
+	"exercism_go_solution/circular-buffer"
 	"exercism_go_solution/clock"
 	"exercism_go_solution/collatz-conjecture"
 	"exercism_go_solution/complex-numbers"
@@ -54,6 +56,7 @@ import (
 	"exercism_go_solution/matrix"
 	"exercism_go_solution/meetup"
 	"exercism_go_solution/meteorology"
+	"exercism_go_solution/minesweeper"
 	speed "exercism_go_solution/need-for-speed"
 	prime "exercism_go_solution/nth-prime"
 	"exercism_go_solution/nucleotide-count"
@@ -66,6 +69,8 @@ import (
 	"exercism_go_solution/phone-number"
 	"exercism_go_solution/pig-latin"
 	primefactors "exercism_go_solution/prime-factors"
+	"exercism_go_solution/pythagorean-triplet"
+	"exercism_go_solution/queen-attack"
 	"exercism_go_solution/raindrops"
 	"exercism_go_solution/resistor-color"
 	"exercism_go_solution/resistor-color-trio"
@@ -73,6 +78,7 @@ import (
 	"exercism_go_solution/rna-transcription"
 	"exercism_go_solution/robot-name"
 	"exercism_go_solution/run-length-encoding"
+	saddlepoints "exercism_go_solution/saddle-points"
 	"exercism_go_solution/scrabble-score"
 	"exercism_go_solution/series"
 	"exercism_go_solution/sieve"
@@ -86,6 +92,7 @@ import (
 	"exercism_go_solution/sum-of-multiples"
 	thefarm "exercism_go_solution/the-farm"
 	"exercism_go_solution/tournament"
+	"exercism_go_solution/transpose"
 	"exercism_go_solution/tree-building"
 	"exercism_go_solution/twelve-days"
 	"exercism_go_solution/two-fer"
@@ -245,6 +252,17 @@ func main() {
 	fmt.Println(bookstore.Cost([]int{1, 1, 2, 2, 3, 3, 4, 5}))
 	fmt.Println(allergies.Allergies(34))
 	fmt.Println(allergies.AllergicTo(34, "peanuts"))
+	fmt.Println(pythagorean.Sum(12))
+	fmt.Println(binarysearch.SearchInts([]int{1, 3, 5, 8, 13, 21}, 8))
+	fmt.Println(minesweeper.Annotate([]string{" * ", "   ", "*  "}))
+	fmt.Println(queenattack.CanQueenAttack("d1", "f3"))
+	m2, _ := saddlepoints.New("9 8 7\n5 3 2\n6 6 7")
+	fmt.Println(m2.Saddle())
+	fmt.Println(transpose.Transpose([]string{"ABC", "DE"}))
+	buf := circular.NewBuffer(2)
+	_ = buf.WriteByte('A')
+	_ = buf.WriteByte('B')
+	fmt.Println(buf.ReadByte())
 	d, _ := diamond.Gen('C')
 	fmt.Println(d)
 	fmt.Println(pascal.Triangle(5))

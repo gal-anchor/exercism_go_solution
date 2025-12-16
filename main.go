@@ -25,6 +25,7 @@ import (
 	"exercism_go_solution/clock"
 	"exercism_go_solution/collatz-conjecture"
 	"exercism_go_solution/complex-numbers"
+	"exercism_go_solution/connect"
 	"exercism_go_solution/crypto-square"
 	"exercism_go_solution/custom-set"
 	"exercism_go_solution/darts"
@@ -263,6 +264,8 @@ func main() {
 	_ = buf.WriteByte('A')
 	_ = buf.WriteByte('B')
 	fmt.Println(buf.ReadByte())
+	winner, _ := connect.ResultOf([]string{"O..", ".O.", "..O"})
+	fmt.Println(winner)
 	d, _ := diamond.Gen('C')
 	fmt.Println(d)
 	fmt.Println(pascal.Triangle(5))

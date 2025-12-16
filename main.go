@@ -12,6 +12,7 @@ import (
 	"exercism_go_solution/bird-watcher"
 	"exercism_go_solution/blackjack"
 	"exercism_go_solution/bob"
+	"exercism_go_solution/book-store"
 	"exercism_go_solution/booking-up-for-beauty"
 	"exercism_go_solution/bottle-song"
 	"exercism_go_solution/card-tricks"
@@ -24,11 +25,13 @@ import (
 	"exercism_go_solution/crypto-square"
 	"exercism_go_solution/custom-set"
 	"exercism_go_solution/darts"
+	"exercism_go_solution/diamond"
 	"exercism_go_solution/difference-of-squares"
 	jedlik "exercism_go_solution/elons-toys"
 	"exercism_go_solution/error-handling"
 	"exercism_go_solution/expenses"
 	"exercism_go_solution/flatten-array"
+	"exercism_go_solution/food-chain"
 	"exercism_go_solution/forth"
 	"exercism_go_solution/gigasecond"
 	"exercism_go_solution/gophers-gorgeous-lasagna"
@@ -36,12 +39,14 @@ import (
 	"exercism_go_solution/gross-store"
 	"exercism_go_solution/hamming"
 	greeting "exercism_go_solution/hello-world"
+	"exercism_go_solution/house"
 	"exercism_go_solution/interest-is-interesting"
 	"exercism_go_solution/isogram"
 	"exercism_go_solution/kindergarten-garden"
 	lsproduct "exercism_go_solution/largest-series-product"
 	lasagnamaster "exercism_go_solution/lasagna-master"
 	"exercism_go_solution/leap"
+	"exercism_go_solution/linked-list"
 	"exercism_go_solution/list-ops"
 	"exercism_go_solution/logs-logs-logs"
 	"exercism_go_solution/luhn"
@@ -55,8 +60,10 @@ import (
 	"exercism_go_solution/parallel-letter-frequency"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
 	"exercism_go_solution/party-robot"
+	"exercism_go_solution/pascals-triangle"
 	"exercism_go_solution/perfect-numbers"
 	"exercism_go_solution/phone-number"
+	"exercism_go_solution/pig-latin"
 	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/raindrops"
 	"exercism_go_solution/resistor-color"
@@ -69,8 +76,10 @@ import (
 	"exercism_go_solution/series"
 	"exercism_go_solution/sieve"
 	"exercism_go_solution/simple-cipher"
+	simplelinkedlist "exercism_go_solution/simple-linked-list"
 	"exercism_go_solution/sorting-room"
 	"exercism_go_solution/space-age"
+	"exercism_go_solution/spiral-matrix"
 	"exercism_go_solution/strain"
 	"exercism_go_solution/sublist"
 	"exercism_go_solution/sum-of-multiples"
@@ -83,6 +92,7 @@ import (
 	"exercism_go_solution/weather-forecast"
 	"exercism_go_solution/welcome-to-tech-palace"
 	wordcount "exercism_go_solution/word-count"
+	"exercism_go_solution/word-search"
 	"exercism_go_solution/wordy"
 	"exercism_go_solution/yacht"
 	"fmt"
@@ -219,7 +229,23 @@ func main() {
 	fmt.Println(acc.Close())
 	runEncoded := encode.RunLengthEncode("WWWWBWWWW")
 	fmt.Println(runEncoded)
-	fmt.Println(encode.RunLengthDecode(runEncoded))
+	fmt.Println(encode.RunLengthDecode(encoded))
+	fmt.Println(foodchain.Verse(1))
+	fmt.Println(house.Verse(1))
+	fmt.Println(piglatin.Sentence("quick fast run"))
+	ll := linkedlist.NewList(1, 2, 3)
+	fmt.Println(ll.First().Value, ll.Last().Value)
+	v, _ := ll.Shift()
+	fmt.Println(v)
+	l2 := simplelinkedlist.New([]int{1, 2, 3})
+	fmt.Println(l2.Array(), l2.Size())
+	p, _ := l2.Pop()
+	fmt.Println(p)
+	fmt.Println(bookstore.Cost([]int{1, 1, 2, 2, 3, 3, 4, 5}))
+	d, _ := diamond.Gen('C')
+	fmt.Println(d)
+	fmt.Println(pascal.Triangle(5))
+	fmt.Println(spiralmatrix.SpiralMatrix(3))
 	fmt.Println(dna.DNA("ACGTACGT").Counts())
 	fmt.Println(strand.ToRNA("ACGTGGTCTTAA"))
 	fmt.Println(primefactors.Factors(360))
@@ -254,6 +280,14 @@ func main() {
 	fmt.Println(yacht.Score([]int{5, 5, 5, 5, 5}, "yacht"))
 	fmt.Println(yacht.Score([]int{1, 1, 1, 3, 3}, "full house"))
 	fmt.Println(allyourbase.ConvertToBase(2, []int{1, 0, 1, 0, 1, 0}, 10))
+	solution, _ := wordsearch.Solve([]string{"clojure"}, []string{
+		"clojur",
+		"xxxxx",
+		"xxxxx",
+		"xxxxx",
+		"xxxxx",
+	})
+	fmt.Println(solution)
 	fmt.Println(flatten.Flatten([]any{1, []any{2, 3, nil}, []any{4, []any{5}}, nil}))
 	fmt.Println(forth.Forth([]string{"1 2 +"}))
 	err = erratum.Use(func() (erratum.Resource, error) { return demoResource{}, nil }, "hello")

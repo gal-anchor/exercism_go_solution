@@ -4,7 +4,8 @@ import (
 	"exercism_go_solution/acronym"
 	airportrobot "exercism_go_solution/airport-robot"
 	"exercism_go_solution/all-your-base"
-	"exercism_go_solution/animal-magic"
+	"exercism_go_solution/allergies"
+	chance "exercism_go_solution/animal-magic"
 	"exercism_go_solution/annalyns-infiltration"
 	"exercism_go_solution/armstrong-numbers"
 	"exercism_go_solution/atbash-cipher"
@@ -242,6 +243,8 @@ func main() {
 	p, _ := l2.Pop()
 	fmt.Println(p)
 	fmt.Println(bookstore.Cost([]int{1, 1, 2, 2, 3, 3, 4, 5}))
+	fmt.Println(allergies.Allergies(34))
+	fmt.Println(allergies.AllergicTo(34, "peanuts"))
 	d, _ := diamond.Gen('C')
 	fmt.Println(d)
 	fmt.Println(pascal.Triangle(5))

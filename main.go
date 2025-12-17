@@ -11,6 +11,7 @@ import (
 	"exercism_go_solution/atbash-cipher"
 	"exercism_go_solution/bank-account"
 	"exercism_go_solution/binary-search"
+	"exercism_go_solution/binary-search-tree"
 	"exercism_go_solution/bird-watcher"
 	"exercism_go_solution/blackjack"
 	"exercism_go_solution/bob"
@@ -51,8 +52,9 @@ import (
 	lsproduct "exercism_go_solution/largest-series-product"
 	lasagnamaster "exercism_go_solution/lasagna-master"
 	"exercism_go_solution/leap"
+	"exercism_go_solution/ledger"
 	"exercism_go_solution/linked-list"
-	"exercism_go_solution/list-ops"
+	listops "exercism_go_solution/list-ops"
 	"exercism_go_solution/logs-logs-logs"
 	"exercism_go_solution/luhn"
 	"exercism_go_solution/matching-brackets"
@@ -71,11 +73,13 @@ import (
 	"exercism_go_solution/pascals-triangle"
 	"exercism_go_solution/perfect-numbers"
 	phonenumber "exercism_go_solution/phone-number"
-	"exercism_go_solution/pig-latin"
+	piglatin "exercism_go_solution/pig-latin"
 	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/pythagorean-triplet"
 	"exercism_go_solution/queen-attack"
+	"exercism_go_solution/rail-fence-cipher"
 	"exercism_go_solution/raindrops"
+	"exercism_go_solution/rectangles"
 	"exercism_go_solution/resistor-color"
 	"exercism_go_solution/resistor-color-trio"
 	"exercism_go_solution/reverse-string"
@@ -160,6 +164,11 @@ func main() {
 
 	fmt.Println(raindrops.Convert(28))
 	fmt.Println(raindrops.Convert(30))
+	fmt.Println(rectangles.Count([]string{
+		"+--+",
+		"|  |",
+		"+--+",
+	}))
 
 	fmt.Println(sieve.Sieve(30))
 	fmt.Println(armstrong.IsNumber(153))
@@ -220,6 +229,11 @@ func main() {
 	fmt.Println(scrabble.Score("cabbage"))
 	fmt.Println(leap.IsLeapYear(1996))
 	fmt.Println(leap.IsLeapYear(1900))
+	ledgerOut, err := ledger.FormatLedger("USD", "en-US", []ledger.Entry{
+		{Date: "2015-01-01", Description: "Income", Change: 100000},
+		{Date: "2015-01-02", Description: "Coffee", Change: -450},
+	})
+	fmt.Println(ledgerOut, err)
 	fmt.Println(isogram.IsIsogram("lumberjacks"))
 	fmt.Println(isogram.IsIsogram("six-year-old"))
 	fmt.Println(diffsquares.Difference(10))
@@ -261,6 +275,14 @@ func main() {
 	fmt.Println(allergies.AllergicTo(34, "peanuts"))
 	fmt.Println(pythagorean.Sum(12))
 	fmt.Println(binarysearch.SearchInts([]int{1, 3, 5, 8, 13, 21}, 8))
+	bst := binarysearchtree.NewBst(4)
+	bst.Insert(2)
+	bst.Insert(6)
+	bst.Insert(1)
+	fmt.Println(bst.SortedData())
+	rfc := railfence.Encode("WEAREDISCOVEREDFLEEATONCE", 3)
+	fmt.Println(rfc)
+	fmt.Println(railfence.Decode(rfc, 3))
 	fmt.Println(minesweeper.Annotate([]string{" * ", "   ", "*  "}))
 	fmt.Println(queenattack.CanQueenAttack("d1", "f3"))
 	m2, _ := saddlepoints.New("9 8 7\n5 3 2\n6 6 7")

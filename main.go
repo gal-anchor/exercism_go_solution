@@ -5,6 +5,7 @@ import (
 	airportrobot "exercism_go_solution/airport-robot"
 	"exercism_go_solution/all-your-base"
 	"exercism_go_solution/allergies"
+	"exercism_go_solution/alphametics"
 	chance "exercism_go_solution/animal-magic"
 	"exercism_go_solution/annalyns-infiltration"
 	"exercism_go_solution/armstrong-numbers"
@@ -18,9 +19,11 @@ import (
 	"exercism_go_solution/book-store"
 	"exercism_go_solution/booking-up-for-beauty"
 	"exercism_go_solution/bottle-song"
+	"exercism_go_solution/bowling"
 	"exercism_go_solution/card-tricks"
 	"exercism_go_solution/cars-assemble"
 	"exercism_go_solution/census"
+	"exercism_go_solution/change"
 	"exercism_go_solution/chessboard"
 	"exercism_go_solution/circular-buffer"
 	"exercism_go_solution/clock"
@@ -33,6 +36,7 @@ import (
 	"exercism_go_solution/diamond"
 	"exercism_go_solution/difference-of-squares"
 	"exercism_go_solution/diffie-hellman"
+	"exercism_go_solution/dominoes"
 	jedlik "exercism_go_solution/elons-toys"
 	"exercism_go_solution/error-handling"
 	"exercism_go_solution/expenses"
@@ -41,6 +45,7 @@ import (
 	"exercism_go_solution/forth"
 	"exercism_go_solution/gigasecond"
 	"exercism_go_solution/gophers-gorgeous-lasagna"
+	"exercism_go_solution/grade-school"
 	"exercism_go_solution/grep"
 	"exercism_go_solution/gross-store"
 	"exercism_go_solution/hamming"
@@ -49,6 +54,7 @@ import (
 	"exercism_go_solution/interest-is-interesting"
 	"exercism_go_solution/isogram"
 	"exercism_go_solution/kindergarten-garden"
+	"exercism_go_solution/knapsack"
 	lsproduct "exercism_go_solution/largest-series-product"
 	lasagnamaster "exercism_go_solution/lasagna-master"
 	"exercism_go_solution/leap"
@@ -57,6 +63,7 @@ import (
 	listops "exercism_go_solution/list-ops"
 	"exercism_go_solution/logs-logs-logs"
 	"exercism_go_solution/luhn"
+	"exercism_go_solution/markdown"
 	"exercism_go_solution/matching-brackets"
 	"exercism_go_solution/matrix"
 	"exercism_go_solution/meetup"
@@ -74,6 +81,7 @@ import (
 	"exercism_go_solution/perfect-numbers"
 	phonenumber "exercism_go_solution/phone-number"
 	piglatin "exercism_go_solution/pig-latin"
+	"exercism_go_solution/poker"
 	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/pythagorean-triplet"
 	"exercism_go_solution/queen-attack"
@@ -96,6 +104,7 @@ import (
 	"exercism_go_solution/sorting-room"
 	"exercism_go_solution/space-age"
 	"exercism_go_solution/spiral-matrix"
+	"exercism_go_solution/state-of-tic-tac-toe"
 	"exercism_go_solution/strain"
 	"exercism_go_solution/sublist"
 	"exercism_go_solution/sum-of-multiples"
@@ -104,8 +113,10 @@ import (
 	"exercism_go_solution/transpose"
 	"exercism_go_solution/tree-building"
 	"exercism_go_solution/twelve-days"
+	"exercism_go_solution/two-bucket"
 	"exercism_go_solution/two-fer"
-	purchase "exercism_go_solution/vehicle-purchase"
+	vlq "exercism_go_solution/variable-length-quantity"
+	"exercism_go_solution/vehicle-purchase"
 	"exercism_go_solution/weather-forecast"
 	"exercism_go_solution/welcome-to-tech-palace"
 	wordcount "exercism_go_solution/word-count"
@@ -129,6 +140,14 @@ func (demoResource) Defrob(string) {}
 func main() {
 	fmt.Println(greeting.HelloWorld())
 	fmt.Println(bob.Hey("gal"))
+	bg := bowling.NewGame()
+	for i := 0; i < 20; i++ {
+		_ = bg.Roll(0)
+	}
+	bgScore, bgErr := bg.Score()
+	fmt.Println(bgScore, bgErr)
+	alphaSol, alphaErr := alphametics.Solve("SEND + MORE == MONEY")
+	fmt.Println(alphaSol, alphaErr)
 	fmt.Println(clock.New(21, 2))
 	fmt.Println(wordcount.WordCount("galgalglaglaglalgla adsadas adsadas"))
 	fmt.Println(lsproduct.LargestSeriesProduct("123123123", 2))
@@ -137,8 +156,17 @@ func main() {
 	fmt.Println(booking.Schedule("6/6/2005 10:30:00"))
 	fmt.Println(atbash.Atbash("galgal414141"))
 	fmt.Println(jedlik.NewCar(100, 500).CanFinish(300))
+	s := school.New()
+	s.Add("Alice", 2)
+	s.Add("Bob", 1)
+	s.Add("Charlie", 2)
+	fmt.Println(s.Grade(2))
+	fmt.Println(s.Enrollment())
+	fmt.Println(knapsack.Knapsack(10, []knapsack.Item{{Weight: 5, Value: 10}, {Weight: 4, Value: 40}, {Weight: 6, Value: 30}}))
 	var g airportrobot.Greeter = airportrobot.Italian{}
 	fmt.Println(g.Greet("Alice"))
+	chg, chgErr := change.Change([]int{1, 3, 4}, 6)
+	fmt.Println(chg, chgErr)
 	fmt.Println(parsinglogfiles.IsValidLine("[DBG] - galgalglaglalgalga"))
 	fmt.Println(sorting.DescribeNumber(42))
 	fmt.Println(meteorology.MeteorologyData{})
@@ -156,6 +184,11 @@ func main() {
 	fmt.Println(totalFood, err)
 
 	fmt.Println(pangram.IsPangram("The quick brown fox jumps over the lazy dog"))
+	best, bestErr := poker.BestHand([]string{
+		"4S 5S 7S 8S 6S",
+		"2H 3H 4H 5H 6H",
+	})
+	fmt.Println(best, bestErr)
 
 	caesar := cipher.NewCaesar()
 	encoded := caesar.Encode("hello")
@@ -223,6 +256,8 @@ func main() {
 	fmt.Println(chance.ShuffleAnimals())
 	fmt.Println(twofer.ShareWith("Gal"))
 	fmt.Println(twofer.ShareWith(""))
+	goalBucket, steps, otherLevel, err := twobucket.Solve(3, 5, 1, twobucket.FirstBucketName)
+	fmt.Println(goalBucket, steps, otherLevel, err)
 	fmt.Println(collatzconjecture.CollatzConjecture(12))
 	fmt.Println(gigasecond.AddGigasecond(time.Date(2011, 4, 25, 0, 0, 0, 0, time.UTC)))
 	fmt.Println(hamming.Distance("GAGCCT", "CATCGT"))
@@ -237,6 +272,8 @@ func main() {
 	fmt.Println(isogram.IsIsogram("lumberjacks"))
 	fmt.Println(isogram.IsIsogram("six-year-old"))
 	fmt.Println(diffsquares.Difference(10))
+	chain, ok := dominoes.MakeChain([]dominoes.Domino{{1, 2}, {3, 1}, {2, 3}})
+	fmt.Println(chain, ok)
 	fmt.Println(luhn.Valid("4539 1488 0343 6467"))
 	fmt.Println(luhn.Valid("8273 1232 7352 0569"))
 	fmt.Println(resistorcolor.Colors())
@@ -299,6 +336,10 @@ func main() {
 	fmt.Println(wc.WriteCount())
 	fmt.Println(brackets.Bracket("{[()]}"))
 	fmt.Println(brackets.Bracket("{[(])}"))
+	fmt.Println(markdown.Render("# Hello\n* __Bold__\n* _Italic_"))
+	vlqBytes := vlq.EncodeVarint([]uint32{0, 127, 128, 8192})
+	vlqDecoded, vlqErr := vlq.DecodeVarint(vlqBytes)
+	fmt.Println(vlqBytes, vlqDecoded, vlqErr)
 	dhP := big.NewInt(23)
 	priv1, pub1 := diffiehellman.NewPair(dhP, 5)
 	priv2, pub2 := diffiehellman.NewPair(dhP, 5)
@@ -358,5 +399,8 @@ func main() {
 	nums := []int{1, 2, 3, 4, 5}
 	fmt.Println(strain.Keep(nums, func(n int) bool { return n%2 == 0 }))
 	fmt.Println(strain.Discard(nums, func(n int) bool { return n%2 == 0 }))
+
+	st, stErr := stateoftictactoe.StateOfTicTacToe([]string{"XOX", "OOX", "X O"})
+	fmt.Println(st, stErr)
 
 }

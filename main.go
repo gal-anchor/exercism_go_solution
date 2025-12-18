@@ -90,6 +90,7 @@ import (
 	"exercism_go_solution/queen-attack"
 	"exercism_go_solution/rail-fence-cipher"
 	"exercism_go_solution/raindrops"
+	"exercism_go_solution/react"
 	"exercism_go_solution/rectangles"
 	"exercism_go_solution/resistor-color"
 	"exercism_go_solution/resistor-color-trio"
@@ -214,6 +215,14 @@ func main() {
 	}))
 
 	fmt.Println(sieve.Sieve(30))
+	rx := react.New()
+	in := rx.CreateInput(1)
+	out := rx.CreateCompute1(in, func(v int) int { return v + 1 })
+	tok := out.AddCallback(func(v int) { fmt.Println("react callback", v) })
+	in.SetValue(2)
+	tok.Cancel()
+	in.SetValue(3)
+	fmt.Println(out.Value())
 	fmt.Println(armstrong.IsNumber(153))
 	fmt.Println(armstrong.IsNumber(154))
 	fmt.Println(reverse.Reverse("Hello, 世界"))

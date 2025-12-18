@@ -72,7 +72,9 @@ import (
 	speed "exercism_go_solution/need-for-speed"
 	prime "exercism_go_solution/nth-prime"
 	"exercism_go_solution/nucleotide-count"
+	"exercism_go_solution/ocr-numbers"
 	"exercism_go_solution/paas-io"
+	"exercism_go_solution/palindrome-products"
 	"exercism_go_solution/pangram"
 	"exercism_go_solution/parallel-letter-frequency"
 	parsinglogfiles "exercism_go_solution/parsing-log-files"
@@ -82,6 +84,7 @@ import (
 	phonenumber "exercism_go_solution/phone-number"
 	piglatin "exercism_go_solution/pig-latin"
 	"exercism_go_solution/poker"
+	"exercism_go_solution/pov"
 	primefactors "exercism_go_solution/prime-factors"
 	"exercism_go_solution/pythagorean-triplet"
 	"exercism_go_solution/queen-attack"
@@ -93,8 +96,10 @@ import (
 	"exercism_go_solution/reverse-string"
 	"exercism_go_solution/rna-transcription"
 	"exercism_go_solution/robot-name"
+	"exercism_go_solution/robot-simulator"
 	"exercism_go_solution/run-length-encoding"
 	saddlepoints "exercism_go_solution/saddle-points"
+	"exercism_go_solution/say"
 	"exercism_go_solution/scrabble-score"
 	"exercism_go_solution/secret-handshake"
 	"exercism_go_solution/series"
@@ -123,6 +128,7 @@ import (
 	"exercism_go_solution/word-search"
 	"exercism_go_solution/wordy"
 	"exercism_go_solution/yacht"
+	"exercism_go_solution/zebra-puzzle"
 	"fmt"
 	"io"
 	"math/big"
@@ -148,6 +154,8 @@ func main() {
 	fmt.Println(bgScore, bgErr)
 	alphaSol, alphaErr := alphametics.Solve("SEND + MORE == MONEY")
 	fmt.Println(alphaSol, alphaErr)
+	minP, maxP, pErr := palindrome.Products(1, 9)
+	fmt.Println(minP, maxP, pErr)
 	fmt.Println(clock.New(21, 2))
 	fmt.Println(wordcount.WordCount("galgalglaglaglalgla adsadas adsadas"))
 	fmt.Println(lsproduct.LargestSeriesProduct("123123123", 2))
@@ -189,6 +197,8 @@ func main() {
 		"2H 3H 4H 5H 6H",
 	})
 	fmt.Println(best, bestErr)
+	t := pov.New("root", pov.New("a"), pov.New("b", pov.New("c")))
+	fmt.Println(t.PathTo("root", "c"))
 
 	caesar := cipher.NewCaesar()
 	encoded := caesar.Encode("hello")
@@ -274,6 +284,9 @@ func main() {
 	fmt.Println(diffsquares.Difference(10))
 	chain, ok := dominoes.MakeChain([]dominoes.Domino{{1, 2}, {3, 1}, {2, 3}})
 	fmt.Println(chain, ok)
+	said, ok := say.Say(12345)
+	fmt.Println(said, ok)
+	fmt.Println(ocr.Recognize("    _  _     _  _  _  _  _ \n  | _| _||_||_ |_   ||_||_|\n  ||_  _|  | _||_|  ||_| _|\n                           \n"))
 	fmt.Println(luhn.Valid("4539 1488 0343 6467"))
 	fmt.Println(luhn.Valid("8273 1232 7352 0569"))
 	fmt.Println(resistorcolor.Colors())
@@ -286,6 +299,12 @@ func main() {
 	fmt.Println(r.Name())
 	r.Reset()
 	fmt.Println(r.Name())
+
+	robot.Step1Robot.X, robot.Step1Robot.Y, robot.Step1Robot.Dir = 0, 0, robot.N
+	robot.Advance()
+	robot.Right()
+	robot.Advance()
+	fmt.Println(robot.Step1Robot.X, robot.Step1Robot.Y, robot.Step1Robot.Dir)
 	m, _ := matrix.New("1 2\n3 4")
 	fmt.Println(m.Rows())
 	fmt.Println(m.Cols())
@@ -382,6 +401,7 @@ func main() {
 	fmt.Println(err)
 	fmt.Println(yacht.Score([]int{5, 5, 5, 5, 5}, "yacht"))
 	fmt.Println(yacht.Score([]int{1, 1, 1, 3, 3}, "full house"))
+	fmt.Println(zebra.SolvePuzzle())
 	fmt.Println(allyourbase.ConvertToBase(2, []int{1, 0, 1, 0, 1, 0}, 10))
 	solution, _ := wordsearch.Solve([]string{"clojure"}, []string{
 		"clojur",
